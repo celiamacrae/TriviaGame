@@ -19,6 +19,7 @@ const defaultUser = {}
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
 const addPoint = user => ({type: ADD_POINT, user})
+const getAllUsers = users => ({type: GET_ALL_USERS, user})
 
 /**
  * THUNK CREATORS
@@ -67,7 +68,6 @@ export const onePoint = userid => async dispatch => {
     console.error(err)
   }
 }
-
 /**
  * REDUCER
  */
