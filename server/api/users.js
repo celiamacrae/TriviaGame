@@ -15,3 +15,22 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/:userid/addPoint', async (req, res, next) => {
+  console.log(req.body)
+  try {
+    const userid = req.params.userid
+    let user = await User.findOne({
+      where: {
+        id: req.params.userid
+      }
+    })
+
+    let newPoints = user.points + 1
+
+    user.update({points: newPoints})
+    res.send(user)
+  } catch (err) {
+    next(err)
+  }
+})

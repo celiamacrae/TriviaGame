@@ -19,3 +19,38 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.ansbox {
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.ansbox:hover {
+  background-color: #b9deed;
+}
+
+#board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#answer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
