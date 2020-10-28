@@ -5,14 +5,21 @@ import {connect} from 'react-redux'
 /**
  * COMPONENT
  */
-export const UserHome = props => {
-  const {email} = props
 
-  return (
-    <div>
-      <h3>Welcome, {email}</h3>
-    </div>
-  )
+class UserHome extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    console.log('HERE', this.props.user)
+    return (
+      <div>
+        <h1>Welcome, {this.props.user.nickname}.</h1>
+        <h3>You currently have {this.props.user.points} points.</h3>
+      </div>
+    )
+  }
 }
 
 /**
@@ -20,7 +27,7 @@ export const UserHome = props => {
  */
 const mapState = state => {
   return {
-    email: state.user.email
+    user: state.user
   }
 }
 
