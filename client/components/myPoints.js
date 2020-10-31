@@ -4,8 +4,8 @@ import React from 'react'
 
 const MyPoints = props => {
   return (
-    <div>
-      <h3 id="my_points">Current Points: {props.currScore}</h3>
+    <div id="my_points">
+      <h3 id="curr_points">Current Points: {props.currScore}</h3>
     </div>
   )
 }

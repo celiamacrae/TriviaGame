@@ -112,7 +112,7 @@ class Game extends React.Component {
     ) : (
       <div id="start">
         <button id="start_btn" onClick={this.startGame}>
-          Start Game
+          Begin Round
         </button>
       </div>
     )

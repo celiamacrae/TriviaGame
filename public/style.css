@@ -86,16 +86,16 @@ form div {
 
 #start {
   display: flex;
+  min-height: calc(100vh - 250px);
   align-items: center;
   justify-content: center;
-  align-content: center;
-  justify-items: center;
-  padding: 20px;
-  margin: 50px;
 }
 
 #start_btn {
-  font-size: 24px;
+  justify-self: center;
+  align-self: center;
+  font-size: 36px;
+  padding: 20px;
   font-family: 'Lucida Console', Monaco, monospace;
 }
 
@@ -105,7 +105,11 @@ table,
 th,
 td {
   border: 1px solid black;
-  padding: 5px;
+}
+
+th,
+td {
+  padding: 5px 15px;
 }
 
 #leaderboard {
@@ -128,9 +132,14 @@ td {
 
 #my_points {
   text-align: center;
-  border-style: double;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+#curr_points {
+  border-style: double;
+  padding: 20px;
 }
 
 #finalscore {
