@@ -13,7 +13,6 @@ class UserHome extends React.Component {
   }
 
   render() {
-    console.log('HERE', this.props.user)
     return (
       <div>
         <h1>Welcome, {this.props.user.nickname}.</h1>
