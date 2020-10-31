@@ -12,7 +12,7 @@ const Board = props => {
   )
   return (
     <div id="board">
-      <h1>Question # {q.id}</h1>
+      <h1>Question # {props.num}</h1>
       <h3>{q.q}</h3>
       <div id="buttons">
         {shuffledQuestions.map(question => {

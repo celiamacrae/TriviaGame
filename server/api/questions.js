@@ -5,7 +5,7 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const questions = await Question.findAll()
-    let shuffledQs = shuffle(questions)
+    let shuffledQs = shuffle(questions).slice(0, 10)
     res.json(shuffledQs)
   } catch (err) {
     next(err)

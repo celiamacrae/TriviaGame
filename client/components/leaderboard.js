@@ -5,8 +5,6 @@ import {fetchUsers} from '../store/allUsers'
 class LeaderBoard extends React.Component {
   constructor() {
     super()
-
-    // this.mostPoints = this.mostPoints.bind(this)
   }
 
   async componentDidMount() {

@@ -17,8 +17,7 @@ class UserHome extends React.Component {
     return (
       <div>
         <h1>Welcome, {this.props.user.nickname}.</h1>
-        <h3>You currently have {this.props.user.points} points.</h3>
-        <h3> hi</h3>
+        <h3>Your max score is {this.props.user.points} points.</h3>
       </div>
     )
   }

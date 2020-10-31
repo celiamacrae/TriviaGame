@@ -6,7 +6,7 @@ import history from '../history'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
-const ADD_POINT = 'ADD_POINT'
+const UPDATE_POINTS = 'UPDATE_POINTS'
 
 /**
  * INITIAL STATE
@@ -18,7 +18,7 @@ const defaultUser = {}
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
-const addPoint = user => ({type: ADD_POINT, user})
+const updatePoints = user => ({type: UPDATE_POINTS, user})
 const getAllUsers = users => ({type: GET_ALL_USERS, user})
 
 /**
@@ -59,10 +59,11 @@ export const logout = () => async dispatch => {
   }
 }
 
-export const onePoint = userid => async dispatch => {
+export const updateUserPoints = (userid, numPoints) => async dispatch => {
   try {
-    console.log('OD>>', userid)
-    const res = await axios.put(`/api/users/${userid}/addPoint`)
+    const res = await axios.put(`/api/users/${userid}/updatePoints`, {
+      points: numPoints
+    })
     dispatch(addPoint(res.data))
   } catch (err) {
     console.error(err)
@@ -77,7 +78,7 @@ export default function(state = defaultUser, action) {
       return action.user
     case REMOVE_USER:
       return defaultUser
-    case ADD_POINT:
+    case UPDATE_POINTS:
       return action.user
     default:
       return state

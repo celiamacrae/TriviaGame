@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchQuestions} from '../store/question'
-import {onePoint} from '../store/user'
+import {updateUserPoints} from '../store/user'
 import Board from './gameboard'
 import Answer from './answer'
 import MyPoints from './myPoints'
@@ -13,13 +13,16 @@ class Game extends React.Component {
     this.state = {
       counter: 0,
       selected: false,
-      correct: 'Correct'
+      correct: 'Correct',
+      started: false,
+      currentScore: 0
     }
     this.selectBox = this.selectBox.bind(this)
     this.nextQuestion = this.nextQuestion.bind(this)
     this.add = this.add.bind(this)
     this.shuffleQuestions = this.shuffleQuestions.bind(this)
     this.shuffle = this.shuffle.bind(this)
+    this.startGame = this.startGame.bind(this)
   }
 
   async componentDidMount() {
@@ -42,10 +45,12 @@ class Game extends React.Component {
     }
   }
 
-  add() {
+  async add() {
+    let nextScore = this.state.currentScore + 1
+    await this.setState({currentScore: nextScore})
     const id = this.props.user.id
-    if (this.props.user.points < this.props.questions.length) {
-      this.props.onePoint(id)
+    if (this.props.user.points < this.state.currentScore) {
+      this.props.updateUserPoints(id, this.state.currentScore)
     }
   }
 
@@ -70,25 +75,40 @@ class Game extends React.Component {
     return arr
   }
 
+  startGame() {
+    this.setState({started: true})
+  }
+
   render() {
     const q = this.props.questions[this.state.counter]
 
     return this.props.questions.length ? (
       <div id="game">
-        <MyPoints user={this.props.user} />
-        <TimerComp />
-        <Board
-          q={q}
-          selectBox={this.selectBox}
-          selected={this.state.selected}
-          correct={this.state.correct}
-          shuffleQuestions={this.shuffleQuestions}
-        />
-        <Answer
-          selected={this.state.selected}
-          correct={this.state.correct}
-          nextQuestion={this.nextQuestion}
-        />
+        {this.state.started ? (
+          <div>
+            <MyPoints
+              user={this.props.user}
+              currScore={this.state.currentScore}
+            />
+            {/* <TimerComp /> */}
+            <Board
+              q={q}
+              num={this.state.counter + 1}
+              selectBox={this.selectBox}
+              selected={this.state.selected}
+              correct={this.state.correct}
+              shuffleQuestions={this.shuffleQuestions}
+            />
+            <Answer
+              selected={this.state.selected}
+              correct={this.state.correct}
+              nextQuestion={this.nextQuestion}
+              counter={this.state.counter}
+            />
+          </div>
+        ) : (
+          <button onClick={this.startGame}>Start Game</button>
+        )}
       </div>
     ) : (
       <div />
@@ -103,7 +123,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   fetchQuestions: () => dispatch(fetchQuestions()),
-  onePoint: id => dispatch(onePoint(id))
+  updateUserPoints: (id, points) => dispatch(updateUserPoints(id, points))
 })
 
 export default connect(mapState, mapDispatch)(Game)
