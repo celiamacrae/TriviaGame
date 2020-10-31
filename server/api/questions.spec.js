@@ -30,5 +30,5 @@ describe('Question routes', () => {
       expect(res.body).to.be.an('array')
       expect(res.body[0].correct).to.be.equal('Correct Answer')
     })
-  }) // end describe('/api/users')
+  }) // end describe('/api/questions')
 }) // end describe('Question routes')
