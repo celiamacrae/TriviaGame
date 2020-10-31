@@ -19,7 +19,6 @@ router.get('/', async (req, res, next) => {
 })
 
 router.put('/:userid/addRound', async (req, res, next) => {
-  console.log(req.body)
   try {
     const userid = req.params.userid
     let user = await User.findOne({
@@ -37,7 +36,6 @@ router.put('/:userid/addRound', async (req, res, next) => {
 })
 
 router.put('/:userid/updatePoints', async (req, res, next) => {
-  console.log(req.body)
   try {
     const userid = req.params.userid
     let user = await User.findOne({
@@ -47,7 +45,7 @@ router.put('/:userid/updatePoints', async (req, res, next) => {
     })
 
     let newPoints = req.body.points
-    user.update({points: newPoints})
+    await user.update({points: newPoints})
     res.send(user)
   } catch (err) {
     next(err)

@@ -15,7 +15,7 @@ label {
 .nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 nav a {
@@ -37,8 +37,7 @@ form div {
 
 .ansbox {
   margin: 10px;
-  display: flex;
-  flex-direction: column;
+  min-width: 100px;
   padding: 10px;
   font-family: 'Lucida Console', Monaco, monospace;
   text-align: center;
