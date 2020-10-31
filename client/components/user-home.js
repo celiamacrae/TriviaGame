@@ -1,28 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {fetchUsers} from '../store/allUsers'
 
 /**
  * COMPONENT
  */
+export const UserHome = props => {
+  const {nickname, email, points, roundsPlayed} = props
 
-class UserHome extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return (
-      <div id="home">
-        <h1>Welcome, {this.props.user.nickname}.</h1>
-        <h3>Your max score is {this.props.user.points} points.</h3>
-        <h3>
-          You have player {this.props.user.roundsPlayed} rounds of trivia.
-        </h3>
-      </div>
-    )
-  }
+  return (
+    <div id="home">
+      <h3>Welcome, {nickname}.</h3>
+      <h4>You have {points} points.</h4>
+      <h4>You have played {roundsPlayed} rounds of trivia.</h4>
+    </div>
+  )
 }
 
 /**
@@ -30,19 +22,21 @@ class UserHome extends React.Component {
  */
 const mapState = state => {
   return {
-    user: state.user,
-    allUsers: state.allUsers
+    nickname: state.user.nickname,
+    email: state.user.email,
+    points: state.user.points,
+    roundsPlayed: state.user.roundsPlayed
   }
 }
-const mapDispatch = dispatch => ({
-  fetchUsers: () => dispatch(fetchUsers())
-})
 
-export default connect(mapState, mapDispatch)(UserHome)
+export default connect(mapState)(UserHome)
 
 /**
  * PROP TYPES
  */
 UserHome.propTypes = {
-  email: PropTypes.string
+  email: PropTypes.string,
+  points: PropTypes.number,
+  roundsPlayed: PropTypes.number,
+  nickname: PropTypes.string
 }
