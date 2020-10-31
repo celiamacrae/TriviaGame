@@ -10,7 +10,9 @@ router.get('/', async (req, res, next) => {
       // send everything to anyone who asks!
       attributes: ['id', 'email', 'nickname', 'points']
     })
-    res.json(users)
+    let copy = [...users]
+    copy.sort((a, b) => b.points - a.points)
+    res.json(copy)
   } catch (err) {
     next(err)
   }

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import {fetchUsers} from '../store/allUsers'
 
 /**
  * COMPONENT
@@ -17,6 +18,7 @@ class UserHome extends React.Component {
       <div>
         <h1>Welcome, {this.props.user.nickname}.</h1>
         <h3>You currently have {this.props.user.points} points.</h3>
+        <h3> hi</h3>
       </div>
     )
   }
@@ -27,11 +29,15 @@ class UserHome extends React.Component {
  */
 const mapState = state => {
   return {
-    user: state.user
+    user: state.user,
+    allUsers: state.allUsers
   }
 }
+const mapDispatch = dispatch => ({
+  fetchUsers: () => dispatch(fetchUsers())
+})
 
-export default connect(mapState)(UserHome)
+export default connect(mapState, mapDispatch)(UserHome)
 
 /**
  * PROP TYPES
