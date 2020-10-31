@@ -26,12 +26,14 @@ class LeaderBoard extends React.Component {
           </thead>
           <tbody>
             {users.map(user => {
-              return (
-                <tr key={user.id}>
-                  <td>{user.nickname}</td>
-                  <td>{user.points}</td>
-                </tr>
-              )
+              if (user.points > 0) {
+                return (
+                  <tr key={user.id}>
+                    <td>{user.nickname}</td>
+                    <td>{user.points}</td>
+                  </tr>
+                )
+              }
             })}
           </tbody>
         </table>

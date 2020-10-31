@@ -3,7 +3,11 @@ import logger from 'redux-logger'
 import React from 'react'
 
 const MyPoints = props => {
-  return <h1>You have {props.currScore} points</h1>
+  return (
+    <div>
+      <h3 id="my_points">Current Points: {props.currScore}</h3>
+    </div>
+  )
 }
 
 export default MyPoints

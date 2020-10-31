@@ -8,7 +8,7 @@ router.get('/', async (req, res, next) => {
       // explicitly select only the id and email fields - even though
       // users' passwords are encrypted, it won't help if we just
       // send everything to anyone who asks!
-      attributes: ['id', 'email', 'nickname', 'points']
+      attributes: ['id', 'email', 'nickname', 'points', 'roundsPlayed']
     })
     let copy = [...users]
     copy.sort((a, b) => b.points - a.points)
@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.put('/:userid/addPoint', async (req, res, next) => {
+router.put('/:userid/addRound', async (req, res, next) => {
   console.log(req.body)
   try {
     const userid = req.params.userid
@@ -28,9 +28,8 @@ router.put('/:userid/addPoint', async (req, res, next) => {
       }
     })
 
-    let newPoints = user.points + 1
-
-    user.update({points: newPoints})
+    let newRounds = user.roundsPlayed + 1
+    user.update({roundsPlayed: newRounds})
     res.send(user)
   } catch (err) {
     next(err)

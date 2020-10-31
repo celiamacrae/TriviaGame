@@ -14,9 +14,12 @@ class UserHome extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="home">
         <h1>Welcome, {this.props.user.nickname}.</h1>
         <h3>Your max score is {this.props.user.points} points.</h3>
+        <h3>
+          You have player {this.props.user.roundsPlayed} rounds of trivia.
+        </h3>
       </div>
     )
   }

@@ -36,10 +36,12 @@ form div {
 /* GAME BOARD */
 
 .ansbox {
-  border-style: solid;
-  border-color: black;
-  padding: 10px;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-family: 'Lucida Console', Monaco, monospace;
+  text-align: center;
 }
 
 .ansbox:hover {
@@ -56,18 +58,45 @@ form div {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  font-family: 'Lucida Console', Monaco, monospace;
 }
 
 #game {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 #answer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+#next {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-family: 'Lucida Console', Monaco, monospace;
+}
+
+/* START GAME */
+
+#start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  padding: 20px;
+  margin: 50px;
+}
+
+#start_btn {
+  font-size: 24px;
+  font-family: 'Lucida Console', Monaco, monospace;
 }
 
 /* LEADERBOARD */
@@ -85,4 +114,28 @@ td {
   justify-content: center;
   align-items: center;
   font-size: 24px;
+}
+
+/*USER HOME */
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*POINTS COMPONENT */
+
+#my_points {
+  text-align: center;
+  border-style: double;
+  display: flex;
+  justify-content: center;
+}
+
+#finalscore {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

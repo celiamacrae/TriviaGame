@@ -7,6 +7,7 @@ import history from '../history'
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 const UPDATE_POINTS = 'UPDATE_POINTS'
+const ADD_ROUND = 'ADD_ROUND'
 
 /**
  * INITIAL STATE
@@ -20,6 +21,7 @@ const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
 const updatePoints = user => ({type: UPDATE_POINTS, user})
 const getAllUsers = users => ({type: GET_ALL_USERS, user})
+const addRound = user => ({type: ADD_ROUND, user})
 
 /**
  * THUNK CREATORS
@@ -64,7 +66,16 @@ export const updateUserPoints = (userid, numPoints) => async dispatch => {
     const res = await axios.put(`/api/users/${userid}/updatePoints`, {
       points: numPoints
     })
-    dispatch(addPoint(res.data))
+    dispatch(updatePoints(res.data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const addOneRound = userid => async dispatch => {
+  try {
+    const res = await axios.put(`/api/users/${userid}/addRound`)
+    dispatch(addRound(res.data))
   } catch (err) {
     console.error(err)
   }

@@ -25,6 +25,10 @@ const User = db.define('user', {
     type: Sequelize.INTEGER,
     defaultValue: 0
   },
+  roundsPlayed: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
   salt: {
     type: Sequelize.STRING,
     // Making `.salt` act like a function hides it when serializing to JSON.
