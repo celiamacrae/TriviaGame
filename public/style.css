@@ -33,6 +33,8 @@ form div {
   display: inline-block;
 }
 
+/* GAME BOARD */
+
 .ansbox {
   border-style: solid;
   border-color: black;
@@ -68,8 +70,19 @@ form div {
   align-items: center;
 }
 
+/* LEADERBOARD */
+
 table,
 th,
 td {
   border: 1px solid black;
+  padding: 5px;
+}
+
+#leaderboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
 }

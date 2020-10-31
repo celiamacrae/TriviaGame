@@ -14,24 +14,28 @@ class LeaderBoard extends React.Component {
   render() {
     const users = this.props.users
     return users.length ? (
-      <table>
-        <thead>
-          <tr>
-            <th>Nickname</th>
-            <th>Points</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map(user => {
-            return (
-              <tr key={user.id}>
-                <td>{user.nickname}</td>
-                <td>{user.points}</td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
+      <div id="leaderboard">
+        <h3>LEADERBOARD</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Nickname</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map(user => {
+              return (
+                <tr key={user.id}>
+                  <td>{user.nickname}</td>
+                  <td>{user.points}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
     ) : (
       <div />
     )
