@@ -111,6 +111,7 @@ class Game extends React.Component {
             nextQuestion={this.nextQuestion}
             counter={this.state.counter}
             score={this.state.currentScore}
+            correctAnswer={this.props.questions[this.state.counter].correct}
           />
         </div>
       </div>

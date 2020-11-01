@@ -6,6 +6,11 @@ const Answer = props => {
   return props.selected ? (
     <div id="answer">
       <h1>{props.correct}</h1>
+      {props.correct === 'Incorrect' ? (
+        <h3>The correct answer is "{props.correctAnswer}"</h3>
+      ) : (
+        <div />
+      )}
       {props.counter < 9 ? (
         <button
           id="next"
