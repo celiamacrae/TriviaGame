@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {Question} = require('../db/models')
 module.exports = router
+const shuffle = require('../helpers')
 
 router.get('/', async (req, res, next) => {
   try {
@@ -20,19 +21,3 @@ router.post('/', async (req, res, next) => {
     next(err)
   }
 })
-
-function shuffle(arr) {
-  let currIdx = arr.length
-  let tempVal
-  let randomIdx
-
-  while (currIdx !== 0) {
-    randomIdx = Math.floor(Math.random() * currIdx)
-    currIdx -= 1
-    tempVal = arr[currIdx]
-    arr[currIdx] = arr[randomIdx]
-    arr[randomIdx] = tempVal
-  }
-
-  return arr
-}
