@@ -18,8 +18,7 @@ Check out the deployed version here
 To use this as trivia app, you'll need to take the following steps:
 
 * Fork & clone this repo to your local machine.
-* Run the following commands:
-* `npm install`
+* run `npm install` command to install dependencies
 * Create two postgres databases (`MY_APP_NAME` should match the `name`
   parameter in `package.json`):
 
@@ -37,3 +36,7 @@ If you want to run the server and/or `webpack` separately, you can also
 `npm run start-server` and `npm run build-client`.
 
 From there, just follow your bliss.
+
+## Future Goals
+
+* [] CSS Design
