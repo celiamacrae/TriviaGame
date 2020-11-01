@@ -12,6 +12,15 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.post('/', async (req, res, next) => {
+  try {
+    const question = await Question.create(req.body)
+    res.send(question)
+  } catch (err) {
+    next(err)
+  }
+})
+
 function shuffle(arr) {
   let currIdx = arr.length
   let tempVal
