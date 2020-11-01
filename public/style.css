@@ -151,3 +151,24 @@ td {
 h3 {
   font-size: 24px;
 }
+
+/* AUTH FORM */
+#auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#authform {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: center;
+}
+
+#submit_auth {
+  align-self: center;
+}
