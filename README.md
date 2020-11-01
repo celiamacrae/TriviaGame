@@ -13,7 +13,7 @@ Tech Stack:
 (refer to package.json to see all dependencies)
 
 Check out the deployed version here
-[Tandem Trivia App][trivia-linm]
+[Tandem Trivia App][trivia-link]
 
 [trivia-link]: https://tandem-trivia-challenge.herokuapp.com/game
 
