@@ -13,9 +13,9 @@ Tech Stack:
 (refer to package.json to see all dependencies)
 
 Check out the deployed version here
-[Boilermaker Guided Tour][boilermaker-yt]
+[Tandem Trivia App][trivia-linm]
 
-[boilermaker-yt]: https://www.youtube.com/playlist?list=PLx0iOsdUOUmn7D5XL4mRUftn8hvAJGs8H
+[trivia-link]: https://tandem-trivia-challenge.herokuapp.com/game
 
 ## Setup
 
