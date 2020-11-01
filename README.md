@@ -39,4 +39,4 @@ From there, just follow your bliss.
 
 ## Future Goals
 
-* [] CSS Design
+* [ ] CSS Design
