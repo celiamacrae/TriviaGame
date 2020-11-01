@@ -2,11 +2,15 @@
 
 _Created by Celia Macrae_
 
-Dependencies:
+Tech Stack:
+`node.js`
 `express`
 `sequelize`
 `react`
 `redux`
+`mocha`
+`chai`
+(refer to package.json to see all dependencies)
 
 Check out the deployed version here
 [Boilermaker Guided Tour][boilermaker-yt]
