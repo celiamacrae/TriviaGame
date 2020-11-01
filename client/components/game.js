@@ -23,6 +23,7 @@ class Game extends React.Component {
     this.shuffleQuestions = this.shuffleQuestions.bind(this)
     this.shuffle = this.shuffle.bind(this)
     this.startGame = this.startGame.bind(this)
+    // this.freezeAll = this.freezeAll.bind(this)
   }
 
   async componentDidMount() {
@@ -81,6 +82,10 @@ class Game extends React.Component {
     this.props.addOneRound(id)
   }
 
+  // freezeAll(){
+  //   this.setState({selected: true, correct: 'Out of Time!'})
+  // }
+
   render() {
     const q = this.props.questions[this.state.counter]
 
@@ -91,7 +96,7 @@ class Game extends React.Component {
             user={this.props.user}
             currScore={this.state.currentScore}
           />
-          {/* <TimerComp /> */}
+          {/* <TimerComp freeze={this.freezeAll}/> */}
           <Board
             q={q}
             num={this.state.counter + 1}

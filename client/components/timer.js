@@ -1,9 +1,18 @@
 import Timer from 'react-compound-timer'
 import React from 'react'
 
-const TimerComp = () => {
+const TimerComp = props => {
   return (
-    <Timer initialTime={55000} direction="backward">
+    <Timer
+      initialTime={20000}
+      direction="backward"
+      checkpoints={[
+        {
+          time: 0,
+          callback: () => props.freeze()
+        }
+      ]}
+    >
       {() => (
         <React.Fragment>
           <Timer.Seconds /> seconds
