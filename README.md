@@ -47,35 +47,13 @@ Now that you've got the code, follow these steps to get acclimated:
   parameter in `package.json`):
 
 ```
-export MY_APP_NAME=boilermaker
-createdb $MY_APP_NAME
-createdb $MY_APP_NAME-test
+export MY_APP_NAME=trivia
+createdb $trivia
+createdb $trivia-test
 ```
 
-* By default, running `npm test` will use `boilermaker-test`, while
-  regular development uses `boilermaker`
-* Create a file called `secrets.js` in the project root
-  * This file is listed in `.gitignore`, and will _only_ be required
-    in your _development_ environment
-  * Its purpose is to attach the secret environment variables that you
-    will use while developing
-  * However, it's **very** important that you **not** push it to
-    Github! Otherwise, _prying eyes_ will find your secret API keys!
-  * It might look like this:
-
-```
-process.env.GOOGLE_CLIENT_ID = 'hush hush'
-process.env.GOOGLE_CLIENT_SECRET = 'pretty secret'
-process.env.GOOGLE_CALLBACK = '/auth/google/callback'
-```
-
-### OAuth
-
-* To use OAuth with Google, complete the steps above with a real client
-  ID and client secret supplied from Google
-  * You can get them from the [Google APIs dashboard][google-apis].
-
-[google-apis]: https://console.developers.google.com/apis/credentials
+* By default, running `npm test` will use `trivia-test`, while
+  regular development uses `trivia`
 
 ## Linting
 
