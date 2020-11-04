@@ -27,6 +27,7 @@ class Routes extends Component {
             <Route path="/home" component={UserHome} />
             <Route path="/game" component={Game} />
             <Route path="/leaderboard" component={LeaderBoard} />
+            <Route path="/" component={Game} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
